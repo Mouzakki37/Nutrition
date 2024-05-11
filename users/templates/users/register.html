@@ -1,0 +1,135 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" >
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"> 
+
+
+
+    <style>
+
+
+        body{
+            background-color: #DBECD9;
+            }
+
+         form{
+            height: 600px;
+            width: 600px;
+            background-color: white;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 55%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 40px rgba(8,7,16,0.6);
+            padding: 50px 35px;
+            }
+
+
+            .form-control{
+        width: 450px;
+        border-radius: 15px;
+        margin-left: 30px;
+        border: 1px solid dodgerblue;
+    }
+
+    .form-label{
+        margin-left: 30px;
+    }
+    .btn{
+        margin-left: 30px;
+    }
+    #h{
+        margin-left: 30px;
+    }
+    #i{
+        margin-left: 40%;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="Header" style="width: 1514px; height: 111px; position: relative">
+        <div class="Header" style="width: 1440px; height: 111px; left: 0px; top: 0px; position: absolute; background: rgba(254, 255, 249, 0)"></div>
+        <img class="NutrisycHighResolutionLogoBlackOnTransparentBackground1" style="width: 102px; height: 56px; left: 65px; top: 25px; position: absolute;  " src="{% static 'css/images/nutrisyc-high-resolution-logo-black-on-transparent-background 1.png' %}" alt="Image description" />
+        <a href="first">
+            <div class="Accueil" style="left: 521px; top: 37px; position: absolute; color: #89B4A1; font-size: 20px; font-family: Knewave; font-weight: 400; word-wrap: break-word">Accueil </div>
+        </a>
+        
+        <a href="cal_calc">
+            <div class="Calculercalories" style="left: 636px; top: 39px; position: absolute; color: #89B4A1; font-size: 20px; font-family: Knewave; font-weight: 400; word-wrap: break-word">CalculerCalories</div>
+        
+        </a>
+        <div class="Contact" style="left: 1043px; top: 39px; position: absolute; color: #89B4A1; font-size: 20px; font-family: Knewave; font-weight: 400; word-wrap: break-word">Contact</div>
+        <div class="ProposDeNous" style="left: 833px; top: 39px; position: absolute; color: #89B4A1; font-size: 20px; font-family: Knewave; font-weight: 400; word-wrap: break-word">à propos de nous</div>
+        <a href="register">
+            <div class="SIdentifier" style="left: 1167px; top: 39px; position: absolute; color: #89B4A1; font-size: 20px; font-family: Knewave; font-weight: 400; word-wrap: break-word">S’identifier</div>
+
+        </a>
+        <a href="login">
+            <div class="SeConnecter" style="left: 1322px; top: 39px; position: absolute; color: #89B5A1; font-size: 20px; font-family: Knewave; font-weight: 400; word-wrap: break-word">Se connecter</div>
+           </a>    
+    </div>
+
+
+
+
+    
+    <form action="" method="post">
+        {% csrf_token %} 
+        <i class="fa-solid fa-user-group fa-5x mb-2" id="i"></i>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" placeholder="Username" name="username" id="Username" >
+            
+        </div>
+
+        
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Email " name="email" id="email">
+
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control"  placeholder="password" name="password" id="exampleInputPassword1">
+        </div>
+        
+
+        <div class="mb-3">
+            <label for="password2" class="form-label">Confirmer Password</label>
+            <input type="password" class="form-control" placeholder="Confirmer Password" id="password2" name="password2">
+
+        </div>
+
+            {% if messages %}
+            {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+
+        <button type="submit" class="btn btn-primary">Submit</button><br>
+        
+        <p class="login-link">I have an account?? <a href="{% url 'login' %}">Sign in</a></p>
+        
+        
+    </form>
+
+
+
+</body>
+</html>
